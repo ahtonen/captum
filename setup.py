@@ -54,9 +54,9 @@ def report(*args):
 INSIGHTS_REQUIRES = ["flask", "ipython", "ipywidgets", "jupyter"]
 
 INSIGHTS_FILE_SUBDIRS = [
-    "insights/frontend/build",
-    "insights/models",
-    "insights/widget/static",
+    "insights/attr_vis/frontend/build",
+    "insights/attr_vis/models",
+    "insights/attr_vis/widget/static",
 ]
 
 TUTORIALS_REQUIRES = INSIGHTS_REQUIRES + ["torchtext", "torchvision"]
@@ -149,14 +149,14 @@ if __name__ == "__main__":
             (
                 "share/jupyter/nbextensions/jupyter-captum-insights",
                 [
-                    "captum/insights/widget/static/extension.js",
-                    "captum/insights/widget/static/index.js",
-                    "captum/insights/widget/static/index.js.map",
+                    "captum/insights/attr_vis/widget/static/extension.js",
+                    "captum/insights/attr_vis/widget/static/index.js",
+                    "captum/insights/attr_vis/widget/static/index.js.map",
                 ],
             ),
             (
                 "etc/jupyter/nbconfig/notebook.d",
-                ["captum/insights/widget/jupyter-captum-insights.json"],
+                ["captum/insights/attr_vis/widget/jupyter-captum-insights.json"],
             ),
         ],
     )
