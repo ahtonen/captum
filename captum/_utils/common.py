@@ -9,10 +9,11 @@ import torch
 from torch import Tensor, device
 from torch.nn import Module
 
-from .._utils.typing import (
+from captum._utils.typing import (
     BaselineType,
     Literal,
     TargetType,
+    TensorOrTupleOfTensorsGeneric,
     TupleOrTensorOrBoolGeneric,
 )
 
@@ -547,3 +548,9 @@ def _sort_key_list(
     "devices with computed tensors."
 
     return out_list
+
+
+def _flatten_tensor_or_tuple(inp: TensorOrTupleOfTensorsGeneric) -> Tensor:
+    if isinstance(inp, Tensor):
+        return inp.flatten()
+    return torch.cat([single_inp.flatten() for single_inp in inp])
